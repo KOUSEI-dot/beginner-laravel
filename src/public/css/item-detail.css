@@ -1,0 +1,15 @@
+/* フィールド直下のエラーテキスト */
+.form-error {
+    color: #dc2626;
+    /* 赤 */
+    font-size: .9rem;
+    margin-top: 4px;
+}
+
+/* エラー時の枠色強調 */
+textarea.invalid,
+input.invalid,
+select.invalid {
+    border-color: #dc2626;
+    outline: none;
+}
