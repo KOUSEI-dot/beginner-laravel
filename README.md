@@ -85,7 +85,7 @@ DB_PASSWORD=laravel_pass
 
 ## ER 図
 
-![alt text](/Users/tesuto/coachtech/beginner-laravel/src/storage/app/public/ER図.png)
+![ER図](src/storage/app/public/ER図.png)
 
 ## URL
 
