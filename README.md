@@ -45,7 +45,7 @@ cd public
 
 mkdir storage
 
-src > public > storage に![alt text](logo.svg)を入れる。
+src > public > storage に![logo](docs/logo.svg)を入れる。
 
 隠しファイルの.env を以下のように書き換える。⇩
 
