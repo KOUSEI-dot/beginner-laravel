@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
 
-            // プロフィール情報
+
             $table->string('postal_code')->nullable();
             $table->string('address')->nullable();
             $table->string('building')->nullable();

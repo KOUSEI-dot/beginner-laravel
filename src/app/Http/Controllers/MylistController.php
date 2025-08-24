@@ -27,7 +27,6 @@ class MylistController extends Controller
 
         $purchasedIds = Purchase::pluck('item_id')->toArray();
 
-        // ★ 相対パス→公開URLに統一して渡す
         $toView = function ($items) use ($purchasedIds) {
             return $items->map(function (Item $i) use ($purchasedIds) {
 
@@ -35,7 +34,7 @@ class MylistController extends Controller
 
                 // すでに http(s) or /storage ならそのまま、相対なら Storage::url に通す
                 if ($path && !str_starts_with($path, 'http') && !str_starts_with($path, '/storage')) {
-                    $path = Storage::url($path); // => /storage/item_images/xxx.jpg
+                    $path = Storage::url($path);
                 }
 
                 $isSold = (!$i->is_listed) || in_array($i->id, $purchasedIds, true);

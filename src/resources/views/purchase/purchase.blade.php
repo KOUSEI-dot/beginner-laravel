@@ -59,7 +59,7 @@
     {{-- 右側：支払い情報とボタン --}}
     <div class="purchase-right">
         <div class="purchase-summary-card"
-             aria-label="お支払い方法：{{ $displayNames[$selected ?? 'card'] }}">
+            aria-label="お支払い方法：{{ $displayNames[$selected ?? 'card'] }}">
             <div class="summary-row">
                 <span>商品代金</span><span>¥ {{ number_format($item->price) }}</span>
             </div>

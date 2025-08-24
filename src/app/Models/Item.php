@@ -30,7 +30,7 @@ class Item extends Model
         'categories' => 'array',
     ];
 
-    // リレーション（最低限）
+
     public function likes()
     {
         return $this->hasMany(\App\Models\Like::class);

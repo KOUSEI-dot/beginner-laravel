@@ -60,7 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail
             return true;
         }
 
-        $required = ['name']; // 必要なら 'address', 'postal_code' など追加
+        $required = ['name'];
         foreach ($required as $col) {
             if (empty($this->{$col})) {
                 return false;
