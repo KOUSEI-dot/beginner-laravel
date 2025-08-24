@@ -41,12 +41,6 @@ php artisan key:generate
 
 ```
 
-cd public
-
-mkdir storage
-
-src > public > storage に![logo](docs/logo.svg)を入れる。
-
 隠しファイルの.env を以下のように書き換える。⇩
 
 DB_CONNECTION=mysql
