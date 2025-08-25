@@ -38,10 +38,12 @@ npm run dev   # 開発環境向け
 cp .env.example .env
 php artisan key:generate
 
-
 ```
 
 隠しファイルの.env を以下のように書き換える。⇩
+
+```env
+# DB 接続設定
 
 DB_CONNECTION=mysql
 DB_HOST=mysql
@@ -50,32 +52,60 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 
+# メール送信設定 (Mailtrap を利用)
+
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=xxxxxxxxxxxxxx # Mailtrap のダッシュボードに表示される値
+MAIL_PASSWORD=yyyyyyyyyyyyyy # Mailtrap のダッシュボードに表示される値
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=noreply@example.test
+MAIL_FROM_NAME="${APP_NAME}"
+
+```
+
+⚠️ MAIL_USERNAME と MAIL_PASSWORD は Mailtrap の管理画面から取得してください。
+
+beginner-laravel/docs 内にある以下の画像ファイルを storage/app/public にコピーしてください。
+
+```bash
+・comment-icon.jpg
+・HDD.jpg
+・logo.svg
+・star-icon.jpg
+・userアイコン１.png
+・コーヒーミル.jpg
+・ショルダーバッグ.jpg
+・タンブラー.jpg
+・ノートPC.jpg
+・マイク.jpg
+・メイクセット.jpg
+・革靴.jpg
+・玉ねぎ３束.jpg
+・時計.jpg
+
+その後、シンボリックリンクを作成します。
+
+php artisan storage:link
+
+```
+
 ## 使用技術（実行環境）
 
-- **Laravel 8.x**
-  - `composer.json` の `"laravel/framework": "^8.75"` より
-- **PHP 7.3 〜 8.x 対応**
-  - `"php": "^7.3|^8.0"` より
-- **MySQL**
-  - `.env` にて `DB_CONNECTION=mysql` が設定されているため
-- **Laravel Fortify**（認証機能）
-  - `"laravel/fortify": "^1.19"` より
-- **Laravel Sanctum**（API トークン認証に対応可能）
-  - `"laravel/sanctum": "^2.11"` より
-- **Guzzle HTTP Client**（API 通信）
-  - `"guzzlehttp/guzzle": "^7.0.1"` より
-- **CORS 対応**
-  - `"fruitcake/laravel-cors": "^2.0"` によりクロスオリジン通信の設定が可能
-- **Tinker**（REPL 環境）
-  - `php artisan tinker` でテスト・DB 操作が可能
-- **Laravel Sail**（ローカル開発用の Docker 環境オプション）
-  - `"laravel/sail": "^1.0.1"` は Docker 環境での開発もサポート
-- **テスト環境**
-  - PHPUnit（`^9.5.10`）、Mockery、Faker を使用してテストが可能
-- **ローカル開発用 SMTP メール環境**
-  - `.env` に `MAIL_HOST=mailhog` とあり、MailHog を使用したテストメール送信に対応
-- **Redis（オプション）**
-  - `.env` に Redis の記載があり、キューやキャッシュでの利用を想定
+- Laravel 8.x （composer.json の "laravel/framework": "^8.75" より）
+- PHP 7.3〜8.x 対応
+- MySQL（.env にて DB_CONNECTION=mysql が設定されているため）
+- Laravel Fortify（認証機能）
+- Laravel Sanctum（API トークン認証に対応可能）
+- Guzzle HTTP Client（API 通信）
+- CORS 対応（fruitcake/laravel-cors）
+- Tinker（REPL 環境）
+- Laravel Sail（ローカル開発用 Docker 環境オプション）
+- テスト環境（PHPUnit、Mockery、Faker）
+- Mailtrap（開発用 SMTP メール環境）
+- Redis（オプション）
+- .env に Redis の記載があり、キューやキャッシュでの利用を想定
 
 ## ER 図
 
@@ -83,7 +113,7 @@ DB_PASSWORD=laravel_pass
 
 ## URL
 
-・開発環境：：http://localhost
-・phpMyadmin:http://localhost:8000
+・開発環境：http://localhost
+・phpMyAdmin:http://localhost:8000
 
 # beginner-laravel
