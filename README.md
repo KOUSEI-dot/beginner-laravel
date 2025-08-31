@@ -1,12 +1,10 @@
 # beginner-laravel
 
-登録したユーザーが、商品を出品。購入できる Web アプリケーションです。
+登録したユーザーが、商品を出品・購入できる Web アプリケーションです。
 
 ---
 
 ## 環境構築
-
-以下の手順でローカル環境を構築できます。
 
 ```bash
 # リポジトリをクローン
@@ -14,12 +12,11 @@ git clone https://github.com/KOUSEI-dot/beginner-laravel.git
 cd beginner-laravel
 
 docker-compose up --build
-⇨一度ターミナルを閉じる。
+# 一度ターミナルを閉じる
 
 cd beginner-laravel
 
 docker-compose exec php bash
-
 
 # パッケージインストール
 composer install || composer update
@@ -28,21 +25,20 @@ exit
 
 cd src
 
-
 npm install
 
-# フロントエンドアセットをビルド（ 開発用ビルド）
+## フロントエンドアセットをビルド（開発用ビルド）
 npm run dev   # 開発環境向け
 
 # .env 設定
+
 cp .env.example .env
 php artisan key:generate
 
 ```
 
-隠しファイルの.env を以下のように書き換える。⇩
-
 ```env
+
 # DB 接続設定
 
 DB_CONNECTION=mysql
@@ -65,31 +61,34 @@ MAIL_FROM_NAME="${APP_NAME}"
 
 ```
 
-⚠️ MAIL_USERNAME と MAIL_PASSWORD は Mailtrap の管理画面から取得してください。
-
-beginner-laravel/docs 内にある以下の画像ファイルを storage/app/public にコピーしてください。
+> MAIL_USERNAME と MAIL_PASSWORD は Mailtrap の管理画面から取得してください。
 
 ```bash
-・comment-icon.jpg
-・HDD.jpg
-・logo.svg
-・star-icon.jpg
-・userアイコン１.png
-・コーヒーミル.jpg
-・ショルダーバッグ.jpg
-・タンブラー.jpg
-・ノートPC.jpg
-・マイク.jpg
-・メイクセット.jpg
-・革靴.jpg
-・玉ねぎ３束.jpg
-・時計.jpg
+## docs フォルダにある画像を storage/app/public にコピー
 
-その後、シンボリックリンクを作成します。
+cp docs/\* storage/app/public/
 
+
+# その後シンボリックリンクを作成
 php artisan storage:link
 
 ```
+
+## フロントエンド CSS
+
+基本デザインは src/public/css/app.css に記載しています。
+（クローン直後は空の状態ですが、リポジトリに内容を反映済みです）
+
+## ダミーデータ
+
+src/config/dummy_items.php に商品データがあり、出品・購入が可能です。
+
+ログイン情報（ダミーデータあり）
+http://localhost/login
+
+メール: admin@example.com
+
+パスワード: password
 
 ## 使用技術（実行環境）
 
@@ -115,5 +114,3 @@ php artisan storage:link
 
 ・開発環境：http://localhost
 ・phpMyAdmin:http://localhost:8000
-
-# beginner-laravel
