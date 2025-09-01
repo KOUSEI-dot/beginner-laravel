@@ -66,11 +66,7 @@ MAIL_FROM_NAME="${APP_NAME}"
 ```bash
 ## docs フォルダにある画像を storage/app/public にコピー
 
-cp docs/* src/storage/app/public/
-
-
-
-# その後dockerコンテナ、phpのExecでシンボリックリンクを作成
+# その後シンボリックリンクを作成
 php artisan storage:link
 
 ```
