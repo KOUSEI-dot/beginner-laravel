@@ -24,7 +24,7 @@
         <div class="item-card">
             <a href="{{ route('item.show', ['item_id' => $item['id']]) }}">
                 <div class="image-wrapper">
-                    <img src="{{ asset($item['img_url']) }}" alt="{{ $item['name'] }}" class="item-image">
+                <img src="{{ $item['img_url'] }}" alt="{{ $item['name'] }}" class="item-image">
                     @if (!empty($item['sold']) && $item['sold'])
                         <div class="sold-overlay">SOLD</div>
                     @endif
